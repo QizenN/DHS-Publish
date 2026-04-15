@@ -28,14 +28,15 @@ app.add_middleware(
   allow_headers=["*"],
 )
 
-app.mount ("/static", StaticFiles(directory="/mnt/hdd/Codes/Personal/PROJECT/DHS-Publish/static"), name="static")
-
 BASE = '/data/data/com.termux/files/home/DHS-Publish'
 UPLOAD_DIR = f"{BASE}/upload-multiple"
 COVERS_DIR = f"{BASE}/covers"
 DB_PATH = f"{BASE}/papers.db"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(COVERS_DIR, exist_ok=True)
+
+app.mount ("/static", StaticFiles(directory=f"{BASE}/static"), name="static")
+app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR))
 
 DB_CONFIG = {
   "host": "localhost",
@@ -85,7 +86,6 @@ async def get_papers():
   cursor.close()
   conn.close()
   return rows
-
 
 @app.post("/files/")
 async def create_file(file:Annotated[bytes, File()]):
