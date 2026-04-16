@@ -78,8 +78,6 @@ closeBtn.addEventListener('click', function(){
   statusEl.textContent = '';
 });
 
-
-
 uploadForm.addEventListener('submit', async (e)=> {
   e.preventDefault();
 
