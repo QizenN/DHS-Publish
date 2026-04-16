@@ -21,6 +21,13 @@ console.log("Width: ",theWidthofhtescreen);
 
 
 //Load and render paper
+function downloadPaper(filename, title){
+  const link = document.createElement('a');
+  link.href= `/uploads/${filename}`;
+  link.download = title + '.pdf';
+  link.click();
+}
+
 async function loadPapers(){
   const grid = document.getElementById('files-grid');
   const res = await fetch ('/papers');
@@ -73,12 +80,7 @@ closeBtn.addEventListener('click', function(){
   statusEl.textContent = '';
 });
 
-function downloadPaper(filename, title){
-  const link = document.createElement('a');
-  link.href= `/uploads/${filename}`;
-  link.download = title + '.pdf';
-  link.click();
-}
+
 
 uploadForm.addEventListener('submit', async (e)=> {
   e.preventDefault();

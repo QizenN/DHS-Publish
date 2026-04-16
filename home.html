@@ -23,6 +23,11 @@
         </div>
         
         <!--File Upload and upload modal-->
+        <button class="file-upload-button"  id="file-upload-button" type="button">
+          <div class="file-upload-text">Upload</div>
+            <img src="/static/upload-square-svgrepo-com.svg" alt="uploadimg" id="upload-icon">
+        </button>
+        
         <div id="upload-modal">
           <div id="upload-modal-box">
             <form action="/uploadfile/" method ="post" id='file-upload-logic' enctype="multipart/form-data">
@@ -38,10 +43,6 @@
                   Cancel
                 </button>
               </div>
-              <button class="file-upload-button"  id="file-upload-button" type="button">
-                <div class="file-upload-text">Upload</div>
-                <img src="/static/upload-square-svgrepo-com.svg" alt="uploadimg" id="upload-icon">
-              </button>
             </form>
           </div>
         </div>
@@ -66,7 +67,7 @@
     <main>
       <div class="main"> 
         <div class="files-grid" id="files-grid"> 
-          
+
         </div>  
      </div>
     </main>
