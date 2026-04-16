@@ -98,7 +98,7 @@ input{
   cursor:default;
 }
 
-.upload-modal{
+#upload-modal{
   display: none;
   position: fixed;
   inset: 0;
@@ -106,7 +106,7 @@ input{
   justify-content: center;
 }
 
-.upload-modal-box{
+#upload-modal-box{
   display: flex;
   flex-direction: column;
   gap: 12px;
