@@ -31,15 +31,15 @@ app.add_middleware(
 BASE = '/data/data/com.termux/files/home/DHS-Publish'
 UPLOAD_DIR = f"{BASE}/upload-multiple"
 COVERS_DIR = f"{BASE}/covers"
-DB_PATH = f"{BASE}/papers.db"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 os.makedirs(COVERS_DIR, exist_ok=True)
 
 app.mount ("/static", StaticFiles(directory=f"{BASE}/static"), name="static")
 app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR))
+app.mount ("/covers", StaticFiles(directory=COVERS_DIR), name="covers")
 
 DB_CONFIG = {
-  "host": "localhost",
+  "host": "%",
   "user": "dhspublish",
   "password": "UCqj-!4g)*cDUAX0",
   "database": "DHSPublishDB"
@@ -101,7 +101,7 @@ async def upload_file(
 
   #Save PDF
   pdf_filename = file.filename
-  with open(os.path.join(UPLOAD_DIR), pdf_filename) as f:
+  with open(os.path.join(UPLOAD_DIR, pdf_filename), "wb" ) as f:
     f.write(contents)
 
   cover_filename = pdf_filename.replace(".pdf", ".jpg")
@@ -115,7 +115,7 @@ async def upload_file(
     "INSERT INTO papers (title, author, pdf, cover) VALUES (%s, %s, %s, %s)",(title, author, pdf_filename, f"covers/{cover_filename}")
     )
   conn.commit()
-  coursor.close()
+  cursor.close()
   conn.close()
 
   return {"title": title, "author": author, "pdf": pdf_filename}

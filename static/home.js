@@ -38,11 +38,11 @@ async function loadPapers(){
       </div>
       <div class="research-paper-information">
         <div class="research-paper-information-title">
-          Pemanfaatan Website DHSPUBLISH Sebagai Sarana Pencarian Dan Publikasi Karya Tulis Ilmiah Siswa-Siswi SMA Dharma Suci                        
+          ${paper.title}                    
         </div>
         <br>
         <div class="research-paper-information-author">
-          by Frederic Ocean Wu
+          by ${paper.author}
         </div>
         <br>
         <button class="downloadpdf-button" id="research-paper4-file">
@@ -62,9 +62,9 @@ function downloadPaper(filename, title){
 }
 
 const modal = document.getElementById('upload-modal');
-const uploadBtn = document.getElementById('file-upload-logic');
+const uploadBtn = document.getElementById('file-upload-button');
 const closeBtn = document.getElementById('close-modal');
-const uploadForm = document.getElementById('upload-form');
+const uploadForm = document.getElementById('file-upload-logic');
 const statusEl = document.getElementById('upload-status');
 
 uploadBtn.addEventListener('click', function(){
@@ -94,7 +94,7 @@ uploadForm.addEventListener('submit', async (e)=> {
   statusEl.textContent = 'Uploading...';
 
   try{
-    const res = await fetch('/uploadfile', {method: 'POST', body: formData});
+    const res = await fetch('/uploadfile/', {method: 'POST', body: formData});
     if (res.ok){
       statusEl.textContent = 'Upload Successful!';
       uploadForm.reset();
@@ -123,10 +123,9 @@ document.getElementById('profile-picture-button').addEventListener("click", func
 
 const form = document.getElementById('file-upload-logic');
 
-const fileuploadbutton = document.getElementById('file-upload-button');
-fileuploadbutton.addEventListener('click', function () {
-  fileinput.click();
-});
+uploadBtn.addEventListener('click', () =>{
+  modal.style.display= 'flex';
+})
 
 
 //Account
