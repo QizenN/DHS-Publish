@@ -39,7 +39,7 @@ app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR))
 app.mount ("/covers", StaticFiles(directory=COVERS_DIR), name="covers")
 
 DB_CONFIG = {
-  "host": "%",
+  "host": "localhost",
   "user": "dhspublish",
   "password": "UCqj-!4g)*cDUAX0",
   "database": "DHSPublishDB"
