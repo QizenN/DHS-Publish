@@ -54,7 +54,7 @@ async function loadPapers(){
           by ${paper.author}
         </div>
         <br>
-        <button class="downloadpdf-button" onclick ="donwloadPaper('${paper.pdf}', '${paper.title}')">
+        <button class="downloadpdf-button" onclick ="downloadPaper('${paper.pdf}', '${paper.title}')">
           Download PDF
         </button>
       </div>
