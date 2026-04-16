@@ -31,12 +31,22 @@
         <div id="upload-modal">
           <div id="upload-modal-box">
             <form action="/uploadfile/" method ="post" id='file-upload-logic' enctype="multipart/form-data">
-              <input type="text" id="upload-title" placeholder="Title" name="title" required>
-              <input type="text" id="upload-author" placeholder="Author Name" name="author" required>
+              
               <input type="file" accept=".pdf,.doc,.docx,.txt,.odt" id="upload-file" name="file" multiple required>
+
+              <div id="upload-title-style">
+                <input type="text" id="upload-title" placeholder="Title" name="title" required>
+              </div>
+              
+              <div id="upload-author-style">
+                <input type="text" id="upload-author" placeholder="Author Name" name="author" required>                
+              </div>
+
+
+              
               <div id="upload-status"></div>
-              <div>
-                <button type="submit">
+              <div id="submit-cancel-buttons">
+                <button type="submit" id="submit-button">
                   Upload
                 </button>
                 <button type="button" id="close-modal">

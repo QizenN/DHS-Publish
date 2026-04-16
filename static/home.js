@@ -63,8 +63,6 @@ async function loadPapers(){
   }); 
 }
 
-
-
 const modal = document.getElementById('upload-modal');
 const uploadBtn = document.getElementById('file-upload-button');
 const closeBtn = document.getElementById('close-modal');
