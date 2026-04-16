@@ -240,6 +240,11 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 100%;
 }
 
+.research-paper-information-img{
+  width: 100%;
+  height: 100%;
+}
+
 .research-paper-information-author{
   flex:1;
   color: rgb(80, 80, 80);
