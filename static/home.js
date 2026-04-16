@@ -24,8 +24,10 @@ console.log("Width: ",theWidthofhtescreen);
 function downloadPaper(filename, title){
   const link = document.createElement('a');
   link.href= `/uploads/${filename}`;
-  link.download = title + '.pdf';
+  link.download = `${title}.pdf`;
+  document.body.appendChild(link);
   link.click();
+  document.body.removeChild(link);
 }
 
 async function loadPapers(){
@@ -52,7 +54,7 @@ async function loadPapers(){
           by ${paper.author}
         </div>
         <br>
-        <button class="downloadpdf-button" onclick ="donwloadPaper('${paper.pdf}', '{paper.title}')">
+        <button class="downloadpdf-button" onclick ="donwloadPaper('${paper.pdf}', '${paper.title}')">
           Download PDF
         </button>
       </div>
