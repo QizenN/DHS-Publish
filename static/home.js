@@ -45,7 +45,7 @@ async function loadPapers(){
           by ${papers.author}
         </div>
         <br>
-        <button class="downloadpdf-button">
+        <button class="downloadpdf-button" onclick = '${papers.pdf}', '{escapedTitle}'>
           Download PDF
         </button>
       </div>
@@ -73,15 +73,12 @@ closeBtn.addEventListener('click', function(){
   statusEl.textContent = '';
 });
 
-downloadBtn.addEventListener('click', function downloadPaper(filename, title){
+function downloadPaper(filename, title){
   const link = document.createElement('a');
   link.href= `/uploads/${filename}`;
   link.download = title + '.pdf';
   link.click();
 }
-
-)
-
 
 uploadForm.addEventListener('submit', async (e)=> {
   e.preventDefault();
