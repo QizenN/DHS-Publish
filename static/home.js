@@ -34,7 +34,7 @@ async function loadPapers(){
     card.innerHTML =`
     <div class="research-papers">
       <div class = "research-paper-information-paper">
-        <img src = "static/${papers.cover}" alt="cover" id="research-paper-information-img">
+        <img src = "/${papers.cover}" alt="cover" id="research-paper-information-img">
       </div>
       <div class="research-paper-information">
         <div class="research-paper-information-title">
@@ -45,7 +45,7 @@ async function loadPapers(){
           by ${papers.author}
         </div>
         <br>
-        <button class="downloadpdf-button" id="research-paper4-file">
+        <button class="downloadpdf-button">
           Download PDF
         </button>
       </div>
@@ -54,18 +54,14 @@ async function loadPapers(){
   }); 
 }
 
-function downloadPaper(filename, title){
-  const link = document.createElement('a');
-  link.href= `/uploads/${filename}`
-  link.download = title + '.pdf';
-  link.click();
-}
+
 
 const modal = document.getElementById('upload-modal');
 const uploadBtn = document.getElementById('file-upload-button');
 const closeBtn = document.getElementById('close-modal');
 const uploadForm = document.getElementById('file-upload-logic');
 const statusEl = document.getElementById('upload-status');
+const downloadBtn = document.getElementById('downloadpdf-button');
 
 uploadBtn.addEventListener('click', function(){
   modal.style.display = 'flex';
@@ -76,6 +72,16 @@ closeBtn.addEventListener('click', function(){
   uploadForm.reset();
   statusEl.textContent = '';
 });
+
+downloadBtn.addEventListener('click', function downloadPaper(filename, title){
+  const link = document.createElement('a');
+  link.href= `/uploads/${filename}`;
+  link.download = title + '.pdf';
+  link.click();
+}
+
+)
+
 
 uploadForm.addEventListener('submit', async (e)=> {
   e.preventDefault();
