@@ -42,9 +42,7 @@ async function loadPapers(){
     card.className = 'research-papers';
     card.innerHTML =`
     <div class="research-papers">
-      <div class = "research-paper-information-preview">
-        <img src = "/${paper.cover}" alt="cover" id="research-paper-information-img">
-      </div>
+      <img src = "/${paper.cover}" alt="cover" id="research-paper-information-img">
       <div class="research-paper-information">
         <div class="research-paper-information-title">
           ${paper.title}                    
