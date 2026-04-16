@@ -33,7 +33,7 @@ async function loadPapers(){
     card.className = 'research-papers';
     card.innerHTML =`
     <div class="research-papers">
-      <div class="research-paper-preview">
+      <div class = "research-paper-information-paper">
         <img src = "static/${paper.cover}" alt="cover">
       </div>
       <div class="research-paper-information">
