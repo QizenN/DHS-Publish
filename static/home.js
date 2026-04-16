@@ -28,21 +28,21 @@ async function loadPapers(){
 
   grid.innerHTML = '';
 
-  papers.forEach(paper => {
+  papers.forEach(papers => {
     const card = document.createElement('div');
     card.className = 'research-papers';
     card.innerHTML =`
     <div class="research-papers">
       <div class = "research-paper-information-paper">
-        <img src = "static/${paper.cover}" alt="cover" id="research-paper-information-img">
+        <img src = "static/${papers.cover}" alt="cover" id="research-paper-information-img">
       </div>
       <div class="research-paper-information">
         <div class="research-paper-information-title">
-          ${paper.title}                    
+          ${papers.title}                    
         </div>
         <br>
         <div class="research-paper-information-author">
-          by ${paper.author}
+          by ${papers.author}
         </div>
         <br>
         <button class="downloadpdf-button" id="research-paper4-file">
