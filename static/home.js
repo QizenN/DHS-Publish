@@ -33,7 +33,7 @@ async function loadPapers(){
     card.className = 'research-papers';
     card.innerHTML =`
     <div class="research-papers">
-      <div class = "research-paper-information-paper">
+      <div class = "research-paper-information-preview">
         <img src = "/${papers.cover}" alt="cover" id="research-paper-information-img">
       </div>
       <div class="research-paper-information">
@@ -45,7 +45,7 @@ async function loadPapers(){
           by ${papers.author}
         </div>
         <br>
-        <button class="downloadpdf-button" onclick = '${papers.pdf}', '{escapedTitle}'>
+        <button class="downloadpdf-button" onclick = '${papers.file}', '{escapedTitle}'>
           Download PDF
         </button>
       </div>
