@@ -118,7 +118,7 @@ async def upload_file(
   cursor.close()
   conn.close()
 
-  return {"title": title, "author": author, "pdf": pdf_filename}
+  return {"title": title, "author": author, "file": pdf_filename}
 
 if __name__ =="__main__":
   uvicorn.run(app, host="0.0.0.0", port=5004)
